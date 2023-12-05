@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ns="clr-namespace:ProjetoPetV2.ViewModels"
+             xmlns:models="clr-namespace:ProjetoPetV2.Models"
+             x:DataType="ns:UsuarioViewModel"
+             x:Class="ProjetoPetV2.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

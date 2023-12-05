@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyPet.Login"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#d89551">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center"
+            Margin="0,0,0,0">
+
+            <Image Source="portalpet.jpg" HeightRequest="200" WidthRequest="200"/>
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Seja bem vindo!" FontSize="28" TextColor="White" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                <Label Text="Faça login em sua conta" FontSize="18" TextColor="White"   HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+            </VerticalStackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Frame ZIndex="1" HasShadow="True" BorderColor="White" HeightRequest="56" WidthRequest="56" CornerRadius="28">
+                    <Image Source="user.png" HeightRequest="30" WidthRequest="30"/>
+                </Frame>
+                <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand" >
+                    <Entry Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Usuário" Keyboard="Email" TextColor="Black" x:Name="txtUser"/>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" >
+                <Frame ZIndex="1" HasShadow="True" BorderColor="White" HeightRequest="56" WidthRequest="56" CornerRadius="28">
+                    <Image Source="lock.png" HeightRequest="30" WidthRequest="30" />
+                </Frame>
+                <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand" >
+                    <Entry Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Senha" IsPassword="True" Keyboard="Email" TextColor="Black" x:Name="txtPass"/>
+                </Frame>
+            </StackLayout>
+            <Button Text="Entrar" WidthRequest="200" CornerRadius="20" HorizontalOptions="Center" BackgroundColor="DodgerBlue" Clicked="btnLoginClicked"/>
+            
+            <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center" Margin="0,30,0,0">
+                <Label Text="Ainda não tem conta?"  TextColor="White" FontAttributes="Bold"/>
+                <Button Text="Clique aqui!" TextColor="White" Clicked="btnCadastrar_Clicked" BackgroundColor="Transparent" Margin="0,-12,0,0"/>
+            </StackLayout>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
