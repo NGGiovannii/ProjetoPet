@@ -6,7 +6,10 @@
              xmlns:models="clr-namespace:ProjetoPetV2.Models"
              x:DataType="vm:UsuarioViewModel"
              Title="Pesquisa">
-    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+ Adicionar Pet"
+                     Command="{Binding SetOperatingUsuarioCommand}"/>
+    </ContentPage.ToolbarItems>
     <Grid RowDefinitions="Auto, *">
         <VerticalStackLayout Grid.RowSpan="2"
                              VerticalOptions="Center"
@@ -77,10 +80,10 @@
                     <ContentView>
                         <VerticalStackLayout HorizontalOptions="Center"
                                              VerticalOptions="Center">
-                            <Label Text="Nenhum Usuário encontrado"
+                            <Label Text="Nenhum Pet Cadastrado"
                                    FontSize="18"
                                    FontAttributes="Bold"/>
-                            <Label Text="Você pode adicionar um usuário como administrador abaixo"/>
+                            <Label Text="Você pode adicionar um pet com as opções abaixo"/>
                         </VerticalStackLayout>
                     </ContentView>
                 </CollectionView.EmptyView>
@@ -98,7 +101,7 @@
                                          Grid.Column="0">
                         <Label Text="Nome"/>
                         <Entry Text="{Binding OperatingUsuario.NomePet}"
-                               Placeholder="Email do Usuário"
+                               Placeholder="Nome do seu Pet"
                                Margin="0"
                                BackgroundColor="#DAD1F9"/>
                     </VerticalStackLayout>
@@ -107,7 +110,7 @@
                                          Grid.Column="1">
                         <Label Text="Tipo"/>
                         <Entry Text="{Binding OperatingUsuario.TipoPet}"
-                               Placeholder="Senha do Usuário"
+                               Placeholder="O que é seu Pet?"
                                Margin="0"
                                BackgroundColor="#DAD1F9"/>
                     </VerticalStackLayout>
@@ -115,19 +118,28 @@
                                          Grid.Column="2">
                         <Label Text="Saúde"/>
                         <Entry Text="{Binding OperatingUsuario.HistSaude}"
-                               Placeholder="Senha do Usuário"
+                               Placeholder="Como está a saúde?"
                                Margin="0"
                                BackgroundColor="#DAD1F9"/>
                     </VerticalStackLayout>
 
                     <Button Grid.Row="1"
                             Grid.ColumnSpan="2"
-                            Text="Adicionar Usuário"
+                            Text="Atualizar Pet!"
                             HorizontalOptions="Center"
                             VerticalOptions="End"
                             CornerRadius="4"
                             Padding="50,0"
-                            Command="{Binding SaveUsuarioCommand}"/>
+                            Command="{Binding SaveUsuarioCommand}">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button"
+                                         Binding="{Binding OperatingUsuario.Id}"
+                                         Value="0">
+                                <Setter Property="Text" Value="Adicionar Pet"/>
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+
                 </Grid>
             </VerticalStackLayout>
         </Grid>

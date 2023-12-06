@@ -33,6 +33,10 @@ namespace ProjetoPetV2.Models
             {
                 return (false, $"{nameof(HistSaude)} is required.");
             }
+            else if (string.IsNullOrWhiteSpace(Doencas))
+            {
+                return (false, $"{nameof(Doencas)} is required.");
+            }
             return (true, null);
         }
 

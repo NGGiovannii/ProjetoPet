@@ -78,14 +78,22 @@ namespace ProjetoPetV2.ViewModels
                 else
                 {
                     //Atualiza usuário
-                    await _context.UpdateItemAsync<Usuario>(OperatingUsuario);
+                    if(await _context.UpdateItemAsync<Usuario>(OperatingUsuario))
+                    {
+                        var usuarioCopy = OperatingUsuario.Clone();
 
-                    var usuarioCopy = OperatingUsuario.Clone();
+                        var index = Usuarios.IndexOf(OperatingUsuario);
+                        Usuarios.RemoveAt(index);
 
-                    var index = Usuarios.IndexOf(OperatingUsuario);
-                    Usuarios.RemoveAt(index);
+                        Usuarios.Insert(index, usuarioCopy);
+                    }
+                    else
+                    {
+                        await Shell.Current.DisplayAlert("Erro", "Não foi possível atualizar os dados", "Ok");
+                        return;
+                    }
 
-                    Usuarios.Insert(index, usuarioCopy);
+
                 }
                 OperatingUsuario = new();
                 SetOperatingUsuarioCommand.Execute(new());
