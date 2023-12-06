@@ -1,4 +1,5 @@
 using ProjetoPetV2.ViewModels;
+using System.Security.Cryptography;
 
 namespace ProjetoPetV2.View;
 
@@ -6,13 +7,9 @@ public partial class Pesquisa : ContentPage
 {
 	private readonly UsuarioViewModel _viewModel;
 
-	public Pesquisa()
-	{
-        InitializeComponent();
-    }
-
     public Pesquisa(UsuarioViewModel viewModel)
 	{
+        InitializeComponent();
         BindingContext = viewModel;
 		_viewModel = viewModel;
 	}

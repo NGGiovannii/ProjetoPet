@@ -6,13 +6,24 @@
              xmlns:models="clr-namespace:ProjetoPetV2.Models"
              x:DataType="vm:UsuarioViewModel"
              Title="Pesquisa">
+    
     <Grid RowDefinitions="Auto, *">
+        <VerticalStackLayout Grid.RowSpan="2"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             IsVisible="{Binding IsBusy}">
+            <ActivityIndicator IsRunning="True"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"/>
+            <Label Text="{Binding BusyText}"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"/>
+        </VerticalStackLayout>
         <Label Grid.Row="0"
-               
                Text="Usuarios"
                FontAttributes="Bold"
                FontSize="18"
-               Padding="20"/>
+               Padding="10"/>
         <Grid Grid.Row="1"
               RowDefinitions="*, Auto">
             <CollectionView Grid.Row="0"
@@ -23,31 +34,41 @@
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:Usuario">
-                        <Grid RowDefinitions="Auto, Auto"
-                              ColumnDefinitions="*, Auto"
+                        <Grid RowDefinitions="Auto, Auto, Auto"
+                              ColumnDefinitions="*, Auto, Auto"
                               RowSpacing="5"
                               Padding="5">
                             <Label Grid.Row="0"
                                    Grid.Column="0"
-                                   Text="{Binding Email}"
+                                   Text="{Binding NomePet}"
                                    FontAttributes="Bold"/>
                             <Label Grid.Row="1"
                                    Grid.Column="0"
-                                   Text="{Binding Senha}"
+                                   Text="{Binding TipoPet}"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="2"
+                                   Grid.Column="0"
+                                   Text="{Binding HistSaude}"
                                    FontAttributes="Bold"/>
                             <Button Grid.Row="0"
                                     Grid.Column="1"
                                     Text="Edit"
                                     Padding="0"
                                     HeightRequest="25"
-                                    FontSize="12"/>
+                                    FontSize="12"
+                                    CornerRadius="2"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:UsuarioViewModel}}, Path=SetOperatingUsuarioCommand}"
+                                    CommandParameter="{Binding .}"/>
                             
                             <Button Grid.Row="1"
                                     Grid.Column="1"
                                     Text="Del"
                                     Padding="0"
                                     HeightRequest="25"
-                                    FontSize="12"/>
+                                    FontSize="12"
+                                    CornerRadius="2"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:UsuarioViewModel}}, Path=DeleteUsuarioCommand}"
+                                    CommandParameter="{Binding Id}" />
 
                         </Grid>
                     </DataTemplate>
@@ -67,16 +88,16 @@
             <VerticalStackLayout Grid.Row="1">
                 <BoxView Color="{DynamicResource Primary}"
                          HeightRequest="1"/>
-                <Grid RowDefinitions="Auto, Auto"
-                      ColumnDefinitions="200, 200"
+                <Grid RowDefinitions="Auto, Auto, Auto"
+                      ColumnDefinitions="100, 100, 100"
                       Padding="10"
                       RowSpacing="10"
                       ColumnSpacing="10"
                       BackgroundColor="#CCBFFA">
                     <VerticalStackLayout Grid.Row="0"
                                          Grid.Column="0">
-                        <Label Text="Email"/>
-                        <Entry Text="{Binding OperatingUsuario.Email}"
+                        <Label Text="Nome"/>
+                        <Entry Text="{Binding OperatingUsuario.NomePet}"
                                Placeholder="Email do Usuário"
                                Margin="0"
                                BackgroundColor="#DAD1F9"/>
@@ -84,8 +105,16 @@
                     
                     <VerticalStackLayout Grid.Row="0"
                                          Grid.Column="1">
-                        <Label Text="Senha"/>
-                        <Entry Text="{Binding OperatingUsuario.Senha}"
+                        <Label Text="Tipo"/>
+                        <Entry Text="{Binding OperatingUsuario.TipoPet}"
+                               Placeholder="Senha do Usuário"
+                               Margin="0"
+                               BackgroundColor="#DAD1F9"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Row="0"
+                                         Grid.Column="2">
+                        <Label Text="Saúde"/>
+                        <Entry Text="{Binding OperatingUsuario.HistSaude}"
                                Placeholder="Senha do Usuário"
                                Margin="0"
                                BackgroundColor="#DAD1F9"/>

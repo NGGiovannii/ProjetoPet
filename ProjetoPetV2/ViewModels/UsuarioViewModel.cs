@@ -57,6 +57,14 @@ namespace ProjetoPetV2.ViewModels
         {
             if (OperatingUsuario is null)
                 return;
+
+            var (isValid, errorMessage) = OperatingUsuario.Validate();
+            if (!isValid)
+            {
+                await Shell.Current.DisplayAlert("Erro de validação", errorMessage, "Ok");
+                return;
+            }
+
             var busyText = OperatingUsuario.Id == 0 ? "Criando usuário..." : "Atualizando usuário";
             await ExecuteAsync(async () =>
             {
@@ -100,7 +108,7 @@ namespace ProjetoPetV2.ViewModels
                 {
                     await Shell.Current.DisplayAlert("Erro na remoção", "Usuario não foi apagado", "Ok");
                 }
-            }, "Deletando Usuario...");
+            }, "Deleting product...");
         }
 
         private async Task ExecuteAsync(Func<Task> Operation, string busyText = null)

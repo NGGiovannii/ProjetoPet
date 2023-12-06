@@ -20,6 +20,5 @@ public partial class Login : ContentPage
 
     private async void btnLoginClicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new Pesquisa());
     }
 }

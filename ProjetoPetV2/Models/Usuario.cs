@@ -11,11 +11,30 @@ namespace ProjetoPetV2.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public string Email{get; set; }
+        public string NomePet{get; set; }
 
-        public string Senha { get; set; }
+        public string TipoPet { get; set; }
+
+        public string HistSaude { get; set; }
 
         public Usuario Clone() => MemberwiseClone() as Usuario;
+
+        public (bool IsValid, string ErrorMessage) Validate()
+        {
+            if (string.IsNullOrWhiteSpace(NomePet))
+            {
+                return (false, $"{nameof(NomePet)} is required.");
+            }
+            else if (string.IsNullOrWhiteSpace(TipoPet))
+            {
+                return (false, $"{nameof(TipoPet)} is required.");
+            }
+            else if (string.IsNullOrWhiteSpace(HistSaude))
+            {
+                return (false, $"{nameof(HistSaude)} is required.");
+            }
+            return (true, null);
+        }
 
     }
 }

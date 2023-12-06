@@ -97,7 +97,7 @@ namespace ProjetoPetV2.Data
         public async Task<bool> DeleteItemByKeyAsync<TTable>(object primaryKey) where TTable : class, new()
         {
             await CreateTableIfNotExists<TTable>();
-            return await Database.DeleteAsync(primaryKey) > 0;
+            return await Database.DeleteAsync<TTable>(primaryKey) > 0;
         }
 
         public async ValueTask DisposeAsync() => await _connection?.CloseAsync();
