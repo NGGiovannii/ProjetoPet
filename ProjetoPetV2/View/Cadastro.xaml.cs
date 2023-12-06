@@ -1,6 +1,6 @@
 using ProjetoPetV2.Models;
 
-namespace MyPet.Views;
+namespace ProjetoPetV2.View;
 
 public partial class Cadastro : ContentPage
 {

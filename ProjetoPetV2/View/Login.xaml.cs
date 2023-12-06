@@ -1,32 +1,25 @@
-﻿using MyPet.Views;
+﻿using ProjetoPetV2.View;
 
-namespace MyPet
+namespace ProjetoPetV2.View;
+
+public partial class Login : ContentPage
 {
-    public partial class Login : ContentPage
+    
+
+    public Login()
     {
-        
+        InitializeComponent();
 
-        public Login()
-        {
-            InitializeComponent();
-
-
-        }
-
-
-        private void btnCadastrar_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new Cadastro());
-        }
-
-        private async void btnLoginClicked(object sender, EventArgs e)
-        {
-            string email = txtUser.Text;
-            string senha = txtPass.Text;
-
-
-
-        }
     }
 
+
+    private void btnCadastrar_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new Cadastro());
+    }
+
+    private async void btnLoginClicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new Pesquisa());
+    }
 }

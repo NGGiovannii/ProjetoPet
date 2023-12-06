@@ -4,7 +4,7 @@
              xmlns:ns="clr-namespace:ProjetoPetV2.ViewModels"
              xmlns:models="clr-namespace:ProjetoPetV2.Models"
              x:DataType="ns:UsuarioViewModel"
-             x:Class="ProjetoPetV2.MainPageBackup">
+             x:Class="ProjetoPetV2.MainPage">
 
     <ScrollView>
         <VerticalStackLayout
