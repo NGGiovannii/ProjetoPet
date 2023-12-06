@@ -1,4 +1,4 @@
-using MyPet.Models;
+using ProjetoPetV2.Models;
 
 namespace MyPet.Views;
 

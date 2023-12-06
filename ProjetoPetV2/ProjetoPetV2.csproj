@@ -57,8 +57,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="MainPage.xaml.cs">
+	    <DependentUpon>MainPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="View\Login.xaml.cs">
 	    <DependentUpon>Login.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="View\Pesquisa.xaml.cs">
+	    <DependentUpon>Pesquisa.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -67,6 +73,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Login.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Pesquisa.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

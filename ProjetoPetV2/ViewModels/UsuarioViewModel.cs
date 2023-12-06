@@ -1,8 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using MyPet.Models;
-using ProjetoPetV2.Data;
 using ProjetoPetV2.Models;
+using ProjetoPetV2.Data;
 using System.Collections.ObjectModel;
 namespace ProjetoPetV2.ViewModels
 {
@@ -17,10 +16,10 @@ namespace ProjetoPetV2.ViewModels
 
         // ?!
         [ObservableProperty]
-        private ObservableCollection<Usuario> _usuarios;
+        private ObservableCollection<Usuario> _usuarios = new();
 
         [ObservableProperty]
-        private Usuario _operatingUsuario;
+        private Usuario _operatingUsuario = new();
 
         [ObservableProperty]
         private bool _isBusy;
@@ -34,7 +33,7 @@ namespace ProjetoPetV2.ViewModels
             await ExecuteAsync(async () =>
             {
                 var usuarios = await _context.GetAllAsync<Usuario>();
-                var pets = await _context.GetAllAsync<Pet>();
+                //var pets = await _context.GetAllAsync<Pet>();
 
                 //se usuarios não for nulo e tiver qualquer valor, será adicionado à tabela usuario
                 if (usuarios is not null && usuarios.Any())

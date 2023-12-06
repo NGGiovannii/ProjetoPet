@@ -4,13 +4,14 @@
              xmlns:ns="clr-namespace:ProjetoPetV2.ViewModels"
              xmlns:models="clr-namespace:ProjetoPetV2.Models"
              x:DataType="ns:UsuarioViewModel"
-             x:Class="ProjetoPetV2.MainPage">
+             x:Class="ProjetoPetV2.MainPageBackup">
 
     <ScrollView>
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
+            
 
         </VerticalStackLayout>
     </ScrollView>

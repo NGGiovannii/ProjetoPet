@@ -2,7 +2,7 @@
 
 namespace ProjetoPetV2
 {
-    public partial class MainPage : ContentPage
+    /*public partial class MainPage : ContentPage
     {
         private readonly UsuarioViewModel _viewModel;
         public MainPage(UsuarioViewModel viewModel)
@@ -18,6 +18,6 @@ namespace ProjetoPetV2
             await _viewModel.LoadUsuarioAsync();
         }
 
-    }
+    }*/
 
 }

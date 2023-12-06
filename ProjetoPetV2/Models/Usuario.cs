@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyPet.Models
+namespace ProjetoPetV2.Models
 {
     public class Usuario
     {
