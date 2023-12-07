@@ -5,7 +5,7 @@
              xmlns:vm="clr-namespace:ProjetoPetV2.ViewModels"
              xmlns:models="clr-namespace:ProjetoPetV2.Models"
              x:DataType="vm:UsuarioViewModel"
-             Title="Pesquisa">
+             Title="Seus Pets">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="+ Adicionar Pet"
                      Command="{Binding SetOperatingUsuarioCommand}"/>
@@ -23,7 +23,7 @@
                    HorizontalOptions="Center"/>
         </VerticalStackLayout>
         <Label Grid.Row="0"
-               Text="Usuarios"
+               Text="Pets Cadasdrados"
                FontAttributes="Bold"
                FontSize="18"
                Padding="10"/>
@@ -37,8 +37,8 @@
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:Usuario">
-                        <Grid RowDefinitions="Auto, Auto, Auto"
-                              ColumnDefinitions="*, Auto, Auto"
+                        <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto"
+                              ColumnDefinitions="*, Auto, Auto, Auto, Auto"
                               RowSpacing="5"
                               Padding="5">
                             <Label Grid.Row="0"
@@ -52,6 +52,14 @@
                             <Label Grid.Row="2"
                                    Grid.Column="0"
                                    Text="{Binding HistSaude}"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="3"
+                                   Grid.Column="0"
+                                   Text="{Binding ConsMedica}"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="4"
+                                   Grid.Column="0"
+                                   Text="{Binding Exames}"
                                    FontAttributes="Bold"/>
                             <Button Grid.Row="0"
                                     Grid.Column="1"
@@ -91,8 +99,8 @@
             <VerticalStackLayout Grid.Row="1">
                 <BoxView Color="{DynamicResource Primary}"
                          HeightRequest="1"/>
-                <Grid RowDefinitions="Auto, Auto, Auto"
-                      ColumnDefinitions="100, 100, 100"
+                <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto"
+                      ColumnDefinitions="70, 70, 70, 70, 70"
                       Padding="10"
                       RowSpacing="10"
                       ColumnSpacing="10"
@@ -116,9 +124,25 @@
                     </VerticalStackLayout>
                     <VerticalStackLayout Grid.Row="0"
                                          Grid.Column="2">
-                        <Label Text="Saúde"/>
+                        <Label Text="Histórico"/>
                         <Entry Text="{Binding OperatingUsuario.HistSaude}"
-                               Placeholder="Como está a saúde?"
+                               Placeholder="Histórico de Doenças"
+                               Margin="0"
+                               BackgroundColor="#DAD1F9"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Row="0"
+                                         Grid.Column="3">
+                        <Label Text="Consulta"/>
+                        <Entry Text="{Binding OperatingUsuario.ConsMedica}"
+                               Placeholder="Dados de Consulta"
+                               Margin="0"
+                               BackgroundColor="#DAD1F9"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Row="0"
+                                         Grid.Column="4">
+                        <Label Text="Exames"/>
+                        <Entry Text="{Binding OperatingUsuario.Exames}"
+                               Placeholder="Exames feitos"
                                Margin="0"
                                BackgroundColor="#DAD1F9"/>
                     </VerticalStackLayout>

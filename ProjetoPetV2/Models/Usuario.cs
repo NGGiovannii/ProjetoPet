@@ -13,9 +13,13 @@ namespace ProjetoPetV2.Models
         public int Id { get; set; }
         public string NomePet{get; set; }
 
-        public string TipoPet { get; set; }
+        public string TipoPet{ get; set; }
 
-        public string HistSaude { get; set; }
+        public string HistSaude{ get; set; }
+
+        public string ConsMedica { get; set; }
+
+        public string Exames { get; set; }
 
         public Usuario Clone() => MemberwiseClone() as Usuario;
 
@@ -33,9 +37,13 @@ namespace ProjetoPetV2.Models
             {
                 return (false, $"{nameof(HistSaude)} is required.");
             }
-            else if (string.IsNullOrWhiteSpace(Doencas))
+            else if (string.IsNullOrWhiteSpace(ConsMedica))
             {
-                return (false, $"{nameof(Doencas)} is required.");
+                return (false, $"{nameof(ConsMedica)} is required.");
+            }
+            else if (string.IsNullOrWhiteSpace(Exames))
+            {
+                return (false, $"{nameof(Exames)} is required.");
             }
             return (true, null);
         }
