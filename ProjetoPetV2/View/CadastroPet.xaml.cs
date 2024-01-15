@@ -3,11 +3,11 @@ using System.Security.Cryptography;
 
 namespace ProjetoPetV2.View;
 
-public partial class Pesquisa : ContentPage
+public partial class CadastroPet : ContentPage
 {
 	private readonly UsuarioViewModel _viewModel;
 
-    public Pesquisa(UsuarioViewModel viewModel)
+    public CadastroPet(UsuarioViewModel viewModel)
 	{
         InitializeComponent();
         BindingContext = viewModel;
