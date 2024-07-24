@@ -23,7 +23,7 @@ namespace ProjetoPetV2
 
             builder.Services.AddSingleton<DatabaseContext>();
             builder.Services.AddTransient<UsuarioViewModel>();
-            builder.Services.AddTransient<View.Pesquisa>();
+            builder.Services.AddTransient<View.CadastroPet>();
 
             return builder.Build();
         }
